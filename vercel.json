@@ -1,11 +1,11 @@
 {
     "build": {
-      "command": "pip install -r requirements.txt"
+      "command": "pip install -r requirements.txt && gunicorn app:app"
     },
     "routes": [
       {
         "src": "/(.*)",
-        "dest": "app.py"
+        "dest": "app:app"
       }
     ]
 }  

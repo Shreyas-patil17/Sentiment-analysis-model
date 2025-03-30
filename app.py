@@ -9,15 +9,6 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from flask import Flask, render_template, request, flash
 from typing import List
 
-# --- NLTK Resource Download ---
-try:
-    nltk.data.find('tokenizers/punkt')
-except nltk.downloader.DownloadError:
-    nltk.download('punkt')
-try:
-    nltk.data.find('corpora/stopwords')
-except nltk.downloader.DownloadError:
-    nltk.download('stopwords')
 
 # --- Flask App Initialization ---
 app = Flask(__name__)
@@ -46,6 +37,7 @@ except Exception as e:
     print(model_load_error) # Print error to console on startup
 
 # --- Text Preprocessing Function (from your API code) ---
+nltk.data.path.append(os.path.join(os.path.dirname(__file__), "nltk_data"))
 def preprocess_text(text_data: List[str]) -> List[str]:
     """
     Preprocess text by removing punctuation, lowercasing, and removing stopwords

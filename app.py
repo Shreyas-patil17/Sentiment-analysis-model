@@ -127,4 +127,4 @@ def index():
 if __name__ == "__main__":
     # Use host='0.0.0.0' to make it accessible on your network
     # debug=True automatically reloads when code changes (DO NOT use in production)
-    app.run(host="0.0.0.0", port=8000, debug=True)
+    app.run(host="0.0.0.0", port=8000, debug=False)

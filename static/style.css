@@ -1,0 +1,137 @@
+/* --- Base and Font --- */
+body {
+    font-family: 'Inter', sans-serif; /* Modern sans-serif font */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f0f2f5; /* Light grey background */
+    margin: 0;
+    padding: 20px; /* Add padding around the card */
+    box-sizing: border-box;
+}
+
+/* --- Card Container --- */
+.card-container {
+    background-color: #ffffff; /* White card background */
+    padding: 40px; /* Increased padding inside the card */
+    border-radius: 16px; /* More pronounced rounded corners */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08); /* Soft shadow */
+    text-align: center;
+    max-width: 550px; /* Limit card width */
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* --- Typography --- */
+h1 {
+    color: #1c1e21; /* Darker text color */
+    margin-top: 0;
+    margin-bottom: 12px;
+    font-size: 1.75em; /* Larger title */
+    font-weight: 700; /* Bolder title */
+    line-height: 1.3;
+}
+
+.subtitle {
+    color: #606770; /* Softer color for subtitle */
+    font-size: 0.95em;
+    margin-bottom: 30px; /* Space below subtitle */
+    line-height: 1.5;
+}
+
+.footer-text {
+    color: #8a8d91; /* Lighter color for footer */
+    font-size: 0.75em;
+    margin-top: 30px; /* Space above footer */
+    margin-bottom: 0;
+}
+
+/* --- Form Elements --- */
+form {
+    margin-bottom: 20px; /* Space below the form before results */
+}
+
+textarea {
+    width: 100%;
+    padding: 12px 15px; /* Comfortable padding */
+    margin-bottom: 15px;
+    border: 1px solid #ccd0d5; /* Light border */
+    border-radius: 8px; /* Rounded corners for input */
+    font-size: 0.95em;
+    font-family: 'Inter', sans-serif; /* Match body font */
+    resize: vertical;
+    min-height: 80px;
+    box-sizing: border-box; /* Include padding/border in width */
+    background-color: #f5f6f7; /* Slightly off-white background */
+}
+
+textarea::placeholder {
+    color: #8a8d91;
+}
+
+textarea:focus {
+    outline: none;
+    border-color: #4a4e69; /* Highlight border on focus */
+    box-shadow: 0 0 0 2px rgba(74, 78, 105, 0.2); /* Subtle focus ring */
+}
+
+button {
+    padding: 12px 20px;
+    font-size: 1em;
+    font-weight: 500; /* Medium weight button text */
+    color: #ffffff; /* White text */
+    background-color: #4a4e69; /* Dark blue/purple button */
+    border: none; /* No border */
+    border-radius: 8px; /* Rounded corners */
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+button:hover {
+    background-color: #3b3e54; /* Slightly darker on hover */
+}
+
+/* --- Result Area --- */
+#resultArea {
+    margin-top: 25px;
+    padding: 15px;
+    border: 1px solid #e0e0e0; /* Lighter border for results */
+    border-radius: 8px;
+    background-color: #f9f9f9; /* Very light grey background */
+    color: #333;
+    text-align: center; /* Center result text */
+    line-height: 1.6;
+    font-size: 0.9em;
+}
+
+#resultArea strong {
+    font-weight: 700;
+    color: #1c1e21;
+}
+
+#resultArea .probabilities {
+    font-size: 0.9em;
+    color: #606770;
+}
+
+/* --- Alerts (Error Messages) --- */
+.alerts {
+    margin-bottom: 20px; /* Space below alerts if they appear */
+}
+
+.alert {
+    padding: 10px 15px;
+    border-radius: 6px;
+    font-size: 0.9em;
+    text-align: left;
+}
+
+.alert-error {
+    color: #721c24;
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+}

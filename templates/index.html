@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Financial News Sentiment Analysis</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="card-container">
+        <h1>Sentiment Analysis<br>for Financial News</h1>
+        <p class="subtitle">Analyze the sentiment of financial news articles instantly.</p>
+
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                <div class="alerts">
+                {% for category, message in messages %}
+                    <div class="alert alert-{{ category }}">{{ message }}</div>
+                {% endfor %}
+                </div>
+            {% endif %}
+        {% endwith %}
+
+        <form method="POST" action="/">
+            <textarea
+                id="newsArticleInput"
+                name="news_text"
+                rows="5"
+                placeholder="Enter news article"
+            >{{ submitted_text if submitted_text else '' }}</textarea>
+            <button type="submit">Analyze</button>
+        </form>
+
+        {% if prediction %}
+            <div id="resultArea">
+                <strong>Sentiment: {{ prediction }}</strong>
+                {% if probabilities %}
+                    <br>
+                    <small class="probabilities">
+                        (Positive: {{ '%.1f'|format(probabilities.Positive * 100) }}%,
+                        Negative: {{ '%.1f'|format(probabilities.Negative * 100) }}%)
+                    </small>
+                {% endif %}
+            </div>
+        {% endif %}
+
+        <p class="footer-text">Powered by AI. Built for financial insights.</p>
+
+    </div>
+</body>
+</html>
